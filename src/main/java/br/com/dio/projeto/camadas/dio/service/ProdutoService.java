@@ -21,6 +21,10 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
+    public Produto buscarPorId(Long id) {
+        return produtoRepository.findById(id).orElse(null);
+    }
+
     public Produto salvar(Produto produto) {
         if (produto.getQuantidade() < 0) {
             throw new IllegalArgumentException("Quantidade não pode ser negativa.");
